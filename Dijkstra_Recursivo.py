@@ -64,7 +64,7 @@ def evalua(fp, dic_elem, dic_op):
 			val2 = evalua(elem[2], dic_elem, dic_op)
 			val = (not val1 or val2) and (not val2 or val1)
 		else:
-			val = eval(str(evalua(elem[0],dic_elem,dic_op))+dic_op[elem[1][0]]+str(evalua(elem[2],dic_elem,dic_op)))
+			val = eval(str(evalua(elem[0], dic_elem, dic_op)) + dic_op[elem[1][0]] + str(evalua(elem[2], dic_elem, dic_op)))
 	#Si es unario
 	elif(len(elem) == 2):
 		val = eval(dic_op[elem[0][0]] + str(evalua(elem[1], dic_elem, dic_op)))
@@ -92,9 +92,8 @@ def create_dic_elem(variable_names):
 			dic_elem[l[0]] = bool(l[1])
 		elif l[1].lower() == 'false':
 			dic_elem[l[0]] = bool('')
-		else
+		else:
 			return dic_elem
-	print(dic_elem)
 	return dic_elem
 
 def main():
