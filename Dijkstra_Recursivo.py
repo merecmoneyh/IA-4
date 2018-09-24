@@ -50,7 +50,10 @@ def evalua(fp, dic_elem, dic_op):
         Resultado de evaluar la preposición
     """
     #Si es un sólo elemnto entonces lo retorna
-    if len(fp)==1: return dic_elem[fp[0]]
+    if len(fp)==1:
+        if fp[0].lower()=='true': return True
+        if fp[0].lower()=='false': return False
+        return dic_elem[fp[0]]
     elem=idenElem(fp)
     #Si es operador binario
     if(len(elem)==3):
