@@ -87,7 +87,14 @@ def create_dic_elem(variable_names):
 	"""
 	dic_elem = {}
 	for i in range(len(variable_names)):
-		dic_elem[variable_names[i][0]] = bool(variable_names[i][1])
+		l = variable_names[i].split(' ')
+		if l[1].lower() == 'true':
+			dic_elem[l[0]] = bool(l[1])
+		elif l[1].lower() == 'false':
+			dic_elem[l[0]] = bool('')
+		else
+			return dic_elem
+	print(dic_elem)
 	return dic_elem
 
 def main():
@@ -109,7 +116,7 @@ def main():
 
 	lista = fp.split(' ')
 	try:
-		print(evalua(lista, create_dic_elem(variable_names), dic_op))	
+		print(evalua(lista, create_dic_elem(variable_names), dic_op))
 	except:
 		print("\nError inesperado: Revise la entrada de los datos.")
 main()
